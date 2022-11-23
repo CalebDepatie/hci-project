@@ -3,6 +3,22 @@ import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Trans } from 'react-i18next';
 
+function Notification(props) {
+  return <>
+    <div className="preview-thumbnail">
+      <div className="preview-icon bg-dark rounded-circle">
+        <i className={props.icon}></i>
+      </div>
+    </div>
+    <div className="preview-item-content">
+      <p className="preview-subject mb-1"><Trans>{props.title}</Trans></p>
+      <p className="text-muted ellipsis mb-0">
+      <Trans>{props.desc}</Trans>
+      </p>
+    </div>
+  </>
+}
+
 class Navbar extends Component {
   toggleOffcanvas() {
     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
@@ -34,45 +50,11 @@ class Navbar extends Component {
                 <h6 className="p-3 mb-0"><Trans>Notifications</Trans></h6>
                 <Dropdown.Divider />
                 <Dropdown.Item className="dropdown-item preview-item" onClick={evt =>evt.preventDefault()}>
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-calendar text-success"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <p className="preview-subject mb-1"><Trans>Event today</Trans></p>
-                    <p className="text-muted ellipsis mb-0">
-                    <Trans>Just a reminder that you have an event today</Trans>
-                    </p>
-                  </div>
+                  <Notification title="Atrium Overcapacity" desc="Custom room limit reached" icon="mdi mdi-alert text-danger" />
                 </Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Item className="dropdown-item preview-item" onClick={evt =>evt.preventDefault()}>
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-settings text-danger"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <h6 className="preview-subject mb-1"><Trans>Settings</Trans></h6>
-                    <p className="text-muted ellipsis mb-0">
-                    <Trans>Update dashboard</Trans>
-                    </p>
-                  </div>
-                </Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Item className="dropdown-item preview-item" onClick={evt =>evt.preventDefault()}>
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-link-variant text-warning"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <h6 className="preview-subject mb-1"><Trans>Launch Admin</Trans></h6>
-                    <p className="text-muted ellipsis mb-0">
-                    <Trans>New admin wow</Trans>!
-                    </p>
-                  </div>
+                  <Notification title="Settings" desc="Update dashboard" icon="mdi mdi-settings text-danger" />
                 </Dropdown.Item>
                 <Dropdown.Divider />
                 <p className="p-3 mb-0 text-center"><Trans>See all notifications</Trans></p>
