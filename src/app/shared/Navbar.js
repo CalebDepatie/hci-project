@@ -26,6 +26,9 @@ class Navbar extends Component {
   toggleRightSidebar() {
     document.querySelector('.right-sidebar').classList.toggle('open');
   }
+  clickSettings() {
+
+  }
   render () {
     return (
       <nav className="navbar p-0 fixed-top d-flex flex-row">
@@ -72,17 +75,6 @@ class Navbar extends Component {
               <Dropdown.Menu className="navbar-dropdown preview-list navbar-profile-dropdown-menu">
                 <h6 className="p-3 mb-0"><Trans>Profile</Trans></h6>
                 <Dropdown.Divider />
-                <Dropdown.Item href="!#" onClick={evt =>evt.preventDefault()} className="preview-item">
-                  <div className="preview-thumbnail">
-                    <div className="preview-icon bg-dark rounded-circle">
-                      <i className="mdi mdi-settings text-success"></i>
-                    </div>
-                  </div>
-                  <div className="preview-item-content">
-                    <p className="preview-subject mb-1"><Trans>Settings</Trans></p>
-                  </div>
-                </Dropdown.Item>
-                <Dropdown.Divider />
                 <Dropdown.Item href="!#" onClick={evt =>evt.preventDefault()}  className="preview-item">
                   <div className="preview-thumbnail">
                     <div className="preview-icon bg-dark rounded-circle">
@@ -97,6 +89,10 @@ class Navbar extends Component {
                 <p className="p-3 mb-0 text-center"><Trans>Advanced settings</Trans></p>
               </Dropdown.Menu>
             </Dropdown>
+
+            <Link to="/settings" className="navbar navbar-menu-wrapper navbar-nav nav-item nav-link">
+              <i className="mdi mdi-settings"></i>
+            </Link>
           </ul>
           <button className="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" onClick={this.toggleOffcanvas}>
             <span className="mdi mdi-format-line-spacing"></span>

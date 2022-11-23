@@ -22,6 +22,7 @@ const Error500 = lazy(() => import('./error-pages/Error500'));
 
 const Login = lazy(() => import('./user-pages/Login'));
 const Register1 = lazy(() => import('./user-pages/Register'));
+const Settings = lazy(() => import("./Settings"));
 
 
 class AppRoutes extends Component {
@@ -49,6 +50,7 @@ class AppRoutes extends Component {
 
           <Route path="/error-pages/error-404" component={ Error404 } />
           <Route path="/error-pages/error-500" component={ Error500 } />
+          <Route path="/settings" component={ Settings } />
 
 
           <Redirect to="/dashboard" />
